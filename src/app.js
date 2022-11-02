@@ -1,7 +1,9 @@
 const express = require('express')
 const router = require("./routes");
-const mongoose = require("mongoose");
-const app = express()
+const dotenv = require("dotenv");
+dotenv.config();
+const config = require("./config/config.js");
+const app = express();
 const port = 3000
 app.use(router);
 

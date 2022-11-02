@@ -1,7 +1,14 @@
-const router = require("express").Router();
-
-router.get("/test", (req, res) => {
-  res.send("Let's build a CRUD API!");
-});
+const express = require("express");
+const userRoute = require('./users');
+const router = express.Router()
+const defaultRoutes = [
+  {
+    path: '/users',
+    route: userRoute
+  }
+];
+defaultRoutes.forEach((route) => {
+  router.use(route.path, route.route)
+})
 
 module.exports = router;
