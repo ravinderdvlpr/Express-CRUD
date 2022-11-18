@@ -30,5 +30,9 @@ const userSchema = mongoose.Schema({
     },
     mobile: { type: String },
 });
+
+userSchema.statics.isEmailTaken = async function (email, excludeUserId) {
+    return user = await this.findOne({ email, _id: { $ne: excludeUserId } })
+  }
 const User = mongoose.model('User', userSchema)
 module.exports = User
